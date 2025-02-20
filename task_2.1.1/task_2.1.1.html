@@ -5,19 +5,16 @@
     <h1>Завдання 1</h1>
 
     <script>
-
-        let name = prompt("Як вас звати?");
-        console.log(`Користувач ввів: ${name}`);
-
-        let isNameCorrect = confirm("Ви ввели своє ім'я правильно?");
-        console.log(`Користувач ввів підтвердження: ${isNameCorrect}`);
-
-        while (!isNameCorrect) {
+        let name;
+        let isNameCorrect;
+        do {
             name = prompt("Як вас звати?");
-            console.log(`Користувач знову ввів своє імʼя: ${name}`);
+            console.log(`Користувач ввів: ${name}`);
+
             isNameCorrect = confirm("Ви ввели своє ім'я правильно?");
-            console.log(`Користувач знову ввів підтвердження: ${isNameCorrect}`);
+            console.log(`Користувач ввів підтвердження: ${isNameCorrect}`);
         }
+        while (!isNameCorrect);
 
         alert("Привіт, " + name + "!");
 
