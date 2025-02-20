@@ -12,7 +12,7 @@
         let isNameCorrect = confirm("Ви ввели своє ім'я правильно?");
         console.log(`Користувач ввів підтвердження: ${isNameCorrect}`);
 
-        while (isNameCorrect == false) {
+        while (!isNameCorrect) {
             name = prompt("Як вас звати?");
             console.log(`Користувач знову ввів своє імʼя: ${name}`);
             isNameCorrect = confirm("Ви ввели своє ім'я правильно?");
