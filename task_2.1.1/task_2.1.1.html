@@ -5,9 +5,25 @@
     <h1>Завдання 1</h1>
 
     <script>
-        alert("Привіт! Це JavaScript у HTML!");
+
+        let name = prompt("Як вас звати?");
+        console.log(`Користувач ввів: ${name}`);
+
+        let isNameCorrect = confirm("Ви ввели своє ім'я правильно?");
+        console.log(`Користувач ввів підтвердження: ${isNameCorrect}`);
+
+        while (isNameCorrect == false) {
+            name = prompt("Як вас звати?");
+            console.log(`Користувач знову ввів своє імʼя: ${name}`);
+            isNameCorrect = confirm("Ви ввели своє ім'я правильно?");
+            console.log(`Користувач знову ввів підтвердження: ${isNameCorrect}`);
+        }
+
+        alert("Привіт, " + name + "!");
+
+
     </script>
-    
+
 </body>
 
 </html>
