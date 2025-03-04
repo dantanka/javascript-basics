@@ -1,1 +1,3 @@
+let secretNumber;
+let usserNumber;
 
