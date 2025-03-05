@@ -25,8 +25,8 @@ let atIndex = userEmail.indexOf('@');
 let dotIndex = userEmail.indexOf('.');
 
 let firstSymbol = userEmail.charAt(0);
-
-let isValidFirstSymbol = isNaN(firstSymbol) && firstSymbol != '@';
+let validFirstSymbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+let isValidFirstSymbol = validFirstSymbols.indexOf(firstSymbol) >= 0;
 
 let isValid = hasOneAt && hasOneDot && (dotIndex > atIndex + 1) && isValidFirstSymbol;
 
