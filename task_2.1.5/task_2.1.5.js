@@ -1,4 +1,4 @@
-let randomNumber;
+let randomNumber = Math.floor(Math.random() * 101); 
 let userNumber;
 let attempts = 0;
 
@@ -15,6 +15,4 @@ do {
     } else {
         alert(`Вітаємо, ви вгадали число ${userNumber} за ${attempts} спроб!`);
     }
-}
-while (userNumber !== randomNumber);
-
+} while (userNumber !== randomNumber);
