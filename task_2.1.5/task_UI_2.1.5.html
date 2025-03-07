@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вгадай число</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            transition: background-color 0.5s;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Гра "Вгадай число 🎰"</h2>
+        <p>Вгадайте число від 0 до 100</p>
+        <input type="number" id="userNumber" placeholder="Введіть число">
+        <button onclick="guessNumber()">Перевірити</button>
+        <p id="message"></p>
+        <button onclick="restartGame()">Почати заново 🔄</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        let randomNumber = Math.floor(Math.random() * 101); 
+        let attempts = 0;
+        
+        function guessNumber() {
+            let userNumber = Number(document.getElementById("userNumber").value);
+            let message = document.getElementById("message");
+            attempts++;
+            
+            if (isNaN(userNumber)) {
+                message.textContent = "Будь ласка, введіть число!";
+                message.className = "error";
+                document.body.style.backgroundColor = "#f4f4f4";
+            } else if (userNumber < randomNumber) {
+                message.textContent = "Ваше число менше.";
+                message.className = "error";
+                document.body.style.backgroundColor = "#ffcccb";
+            } else if (userNumber > randomNumber) {
+                message.textContent = "Ваше число більше.";
+                message.className = "error";
+                document.body.style.backgroundColor = "#add8e6";
+            } else {
+                message.textContent = `Вітаємо, ви вгадали число ${userNumber} за ${attempts} спроб! 🎉`;
+                message.style.color = "green";
+                document.body.style.backgroundColor = "#90ee90";
+            }
+        }
+        
+        function restartGame() {
+            randomNumber = Math.floor(Math.random() * 101);
+            attempts = 0;
+            document.getElementById("userNumber").value = "";
+            document.getElementById("message").textContent = "";
+            document.body.style.backgroundColor = "#f4f4f4";
+        }
+    </script>
+</body>
+</html>
