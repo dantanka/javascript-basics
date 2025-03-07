@@ -36,4 +36,5 @@ switch (operation) {
         break;
 }
 
+
 alert(`Результат: ${result}`);

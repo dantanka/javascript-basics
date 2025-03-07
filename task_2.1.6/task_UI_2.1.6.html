@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перевірка Email</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Перевірка Email</h2>
+        <input type="text" id="email" placeholder="Введіть email">
+        <button onclick="validateEmail()">Перевірити</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function validateEmail() {
+            let userEmail = document.getElementById("email").value;
+            let message = document.getElementById("message");
+            
+            if (!userEmail) {
+                message.textContent = "Помилка! Потрібно ввести email.";
+                message.className = "error";
+                return;
+            }
+            
+            let atCount = (userEmail.match(/@/g) || []).length;
+            let dotCount = (userEmail.match(/\./g) || []).length;
+            let atIndex = userEmail.indexOf('@');
+            let dotIndex = userEmail.lastIndexOf('.');
+            let firstSymbol = userEmail.charAt(0);
+            let validFirstSymbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+            let isValidFirstSymbol = validFirstSymbols.includes(firstSymbol);
+            let isValid = (atCount === 1) && (dotCount >= 1) && (dotIndex > atIndex + 1) && isValidFirstSymbol;
+            
+            if (isValid) {
+                message.textContent = `Ваш email ${userEmail} коректний`;
+                message.style.color = "green";
+            } else {
+                message.textContent = `Ваш email ${userEmail} містить помилку`;
+                message.style.color = "red";
+                message.className = "error";
+            }
+        }
+    </script>
+</body>
+</html>

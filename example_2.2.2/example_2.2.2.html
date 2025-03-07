@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лічильник натискань</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Натисніть кнопку</h2>
+    <p>Кількість натискань: <span id="counter">0</span></p>
+    <button id="countButton">Натиснути</button>
+
+    <script>
+        let count = 0;
+        document.querySelector("#countButton").addEventListener("click", function () {
+            count++;
+            document.querySelector("#counter").textContent = "Hello! " + count;
+        });
+    </script>
+
+</body>
+</html>
